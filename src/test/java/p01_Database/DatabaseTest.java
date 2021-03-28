@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import javax.naming.OperationNotSupportedException;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class DatabaseTest {
@@ -17,5 +18,18 @@ public class DatabaseTest {
         Database database = new Database(elements);
         //assert
         assertEquals(elements.length, database.getElements().length);
+        assertArrayEquals(elements, database.getElements());
+    }
+
+    @Test(expected = OperationNotSupportedException.class)
+
+    public void whenElementsMoreThenSixteenPassedToConstructionThenExceptionIsThrown() throws OperationNotSupportedException {
+        new Database(new Integer[17]);
+    }
+
+    @Test(expected = OperationNotSupportedException.class)
+    public void whenElementsLessThanOnePassedToConstructorThenExceptionIsThrown() throws OperationNotSupportedException {
+        new Database();
+
     }
 }
