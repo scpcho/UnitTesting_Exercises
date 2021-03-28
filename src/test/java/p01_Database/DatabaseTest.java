@@ -32,4 +32,22 @@ public class DatabaseTest {
         new Database();
 
     }
+
+    //add
+
+    @Test
+
+    public void whenValidElementPassedToAddThenElementIsAddedOnLastPosition() throws OperationNotSupportedException {
+        Integer[] elements = new Integer[]{4, 6, 19, 32, 5};
+
+        Database database = new Database(elements);
+
+        int element = 15;
+        database.add(15);
+        Integer[] databaseElements = database.getElements();
+
+        assertEquals(elements.length + 1, databaseElements.length);
+        assertEquals(Integer.valueOf(element), databaseElements[databaseElements.length - 1]);
+
+    }
 }
