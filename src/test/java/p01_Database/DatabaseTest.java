@@ -76,5 +76,6 @@ public class DatabaseTest {
         Integer[] databaseElements = database.getElements();
         assertEquals(elements.length - 1, databaseElements.length);
         assertEquals(elements[elements.length - 2], databaseElements[databaseElements.length - 1]);
+
     }
 }
