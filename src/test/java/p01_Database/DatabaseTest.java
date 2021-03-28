@@ -78,4 +78,13 @@ public class DatabaseTest {
         assertEquals(elements[elements.length - 2], databaseElements[databaseElements.length - 1]);
 
     }
+
+    @Test(expected = OperationNotSupportedException.class)
+
+    public void whenElementIsEmptyAndRemoveThenExceptionIsThrown() throws OperationNotSupportedException {
+        Database database = new Database(new Integer[1]);
+        database.remove();
+        database.remove();
+
+    }
 }
