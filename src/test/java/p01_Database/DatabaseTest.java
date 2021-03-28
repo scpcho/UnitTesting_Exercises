@@ -50,4 +50,31 @@ public class DatabaseTest {
         assertEquals(Integer.valueOf(element), databaseElements[databaseElements.length - 1]);
 
     }
+
+    @Test(expected = OperationNotSupportedException.class)
+
+    public void whenInvalidElementPassedToAddThanExceptionIsThrown() throws OperationNotSupportedException {
+
+        Integer[] elements = new Integer[]{4, 6, 19, 32, 5};
+
+        Database database = new Database(elements);
+
+        database.add(null);
+    }
+
+    //remove
+
+    @Test
+
+    public void whenRemoveThanLastElementIsRemoved() throws OperationNotSupportedException {
+
+        Integer[] elements = new Integer[]{4, 6, 19, 32, 5};
+
+        Database database = new Database(elements);
+
+        database.remove();
+        Integer[] databaseElements = database.getElements();
+        assertEquals(elements.length - 1, databaseElements.length);
+        assertEquals(elements[elements.length - 2], databaseElements[databaseElements.length - 1]);
+    }
 }
